@@ -1,0 +1,9 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Open read/write on books for the eFolio demo only.
+    match /books/{bookId} {
+      allow read, write: if true;
+    }
+  }
+}

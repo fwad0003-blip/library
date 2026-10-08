@@ -1,10 +1,15 @@
 <script setup>
-import JSON from './components/JSON.vue';
-import Form from './components/LibraryRegistrationForm.vue'
 </script>
 
 <template>
-  <Form />
+  <div style="grid-column: 1 / -1">
+    <nav class="container mt-3 nav nav-pills justify-content-center gap-2">
+      <router-link class="nav-link" active-class="active" to="/">Home</router-link>
+      <router-link class="nav-link" active-class="active" to="/addbook">Add Book</router-link>
+      <router-link class="nav-link" active-class="active" to="/CountBookAPI">Count Books</router-link>
+    </nav>
+    <router-view />
+  </div>
 </template>
 
 <style scoped>
