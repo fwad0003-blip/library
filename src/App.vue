@@ -7,6 +7,8 @@
       <router-link class="nav-link" active-class="active" to="/">Home</router-link>
       <router-link class="nav-link" active-class="active" to="/addbook">Add Book</router-link>
       <router-link class="nav-link" active-class="active" to="/CountBookAPI">Count Books</router-link>
+      <router-link class="nav-link" active-class="active" to="/GetAllBookAPI">All Books API</router-link>
+      <router-link class="nav-link" active-class="active" to="/weather">Weather</router-link>
     </nav>
     <router-view />
   </div>

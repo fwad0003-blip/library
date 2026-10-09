@@ -22,6 +22,23 @@ exports.countBooks = onRequest((req, res) => {
   })
 })
 
+// eFolio 10.2 — HTTP function returning every book in "books" as JSON.
+exports.getAllBooks = onRequest((req, res) => {
+  cors(req, res, async () => {
+    try {
+      const snapshot = await db.collection('books').get()
+      const books = snapshot.docs.map((doc) => {
+        const { isbn, name, author } = doc.data()
+        return { id: doc.id, isbn, name, author }
+      })
+      res.status(200).send(books)
+    } catch (error) {
+      logger.error('Error getting books', error)
+      res.status(500).send('Error getting books')
+    }
+  })
+})
+
 // eFolio 9.2 — Firestore trigger: whenever a book is added, capitalise every
 // string field and write the result back, keeping the original input in
 // "originalData" so the before/after can be shown in the browser.
